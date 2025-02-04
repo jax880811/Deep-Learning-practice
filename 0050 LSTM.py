@@ -178,9 +178,9 @@ np.hstack: 假設其他欄位為 0，以適應反標準化的形狀需求。
 '''
 
 plt.figure(figsize=(12, 6))
-plt.plot(range(1, 366), predicted_adj_close, label='2025 預測值', color='blue')
-plt.xlabel('2025 日期')
-plt.ylabel('adj close 數值')
+plt.plot(range(1, 366), predicted_adj_close, label='2025 predict', color='blue')
+plt.xlabel('2025 date')
+plt.ylabel('adj close value')
 plt.title('Taiwan ETF (0050.TW) 2025')
 plt.legend()
 plt.show()
@@ -217,10 +217,10 @@ print(f"RMSE 2024 預測數值 : {rmse}")
 
 #繪圖
 plt.figure(figsize=(12, 6))
-plt.plot(y_test_inverse, label='真實 Adj Close (2024)')
-plt.plot(y_pred_inverse, label='預測 Adj Close (2024)', color='red')
-plt.xlabel('日期')
-plt.ylabel('adj close 數值')
+plt.plot(y_test_inverse, label='real Adj Close (2024)')
+plt.plot(y_pred_inverse, label='predict Adj Close (2024)', color='red')
+plt.xlabel('date')
+plt.ylabel('adj close value')
 plt.title('2024 performance')
 plt.legend()
 plt.show()
