@@ -11,7 +11,7 @@ TRAIN_DIR = "E:/vscode/deep learning/Resnet/training/"
 TEST_DIR = "E:/vscode/deep learning/Resnet/test/"
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
-EPOCHS = 20
+EPOCHS = 5
 NUM_CLASSES = 2  # 貓與狗兩類
 
 # 增強數據
@@ -68,13 +68,13 @@ optimizer = AdamW(learning_rate=1e-4, weight_decay=1e-4)
 # 編譯模型
 model.compile(optimizer=optimizer, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
-# 設定回調函數
+#設定回調函數
 callbacks = [
-    ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=3, verbose=1),  # 當 val_loss 3 次沒改善時降低學習率
-    EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)  # 提前停止，防止過擬合
+    ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=3, verbose=1),  #當val_loss 3 次沒改善時降低學習率
+    EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)  #提前停止，防止過擬合
 ]
 
-# 訓練模型
+#訓練模型
 model.fit(
     train_generator,
     epochs=EPOCHS,
@@ -88,3 +88,8 @@ model.save("resnet50_cats_vs_dogs.keras")
 # 測試模型
 loss, accuracy = model.evaluate(test_generator)
 print(f"測試損失: {loss:.4f}, 測試準確率: {accuracy:.2%}")
+'''
+測試損失: 0.6463, 測試準確率: 61.20%
+
+阿不是哥們，我這沒有用的比較好欸
+'''
