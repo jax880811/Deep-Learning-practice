@@ -26,9 +26,8 @@ results = model.train(
 )
 
 # 保存訓練好的模型
-model_path = r"E:\vscode\deep learning\YOLO\Distracted_Driver_Detection\yolov8_distracted_driver_detection_model.pt"
-model.export(format="pt")  # 導出模型為PyTorch格式
-print("模型保存位置: " + model_path)
+model_path = os.path.join("runs", "detect", "yolov8_distracted_driver_detection", "weights", "best.pt")
+print(f"模型保存位置: {model_path}")
 
 # 評估模型效能
 metrics = model.val()  # 使用驗證集進行評估
