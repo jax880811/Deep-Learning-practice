@@ -5,7 +5,7 @@ GRID_SIZE = 3  #設定網格大小為 3×3，總共有 9 個狀態。
 ACTIONS = ['up', 'down', 'left', 'right']
 ALPHA = 0.1  # 學習率 用來控制 Q 值更新的幅度：Q(s,a)←Q(s,a)+α⋅[TD誤差]
 GAMMA = 0.9  #折扣因子 (γ)，用來平衡 當前獎勵 和 未來回報。
-EPISODES = 500 #設定訓練 1000 次，每次從s1走到s9
+EPISODES = 1000 #設定訓練 1000 次，每次從s1走到s9
 
 # 初始化 Q 表
 q_table = np.zeros((GRID_SIZE, GRID_SIZE, len(ACTIONS))) #這行建立一個三維陣列來存儲 Q 值：
